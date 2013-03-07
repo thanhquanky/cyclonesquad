@@ -1,0 +1,115 @@
+package edu.gatech.cs2340.whereismystuff.models;
+
+import java.util.ArrayList;
+
+public class User 
+{
+	private String username;
+	private String password;
+	private String email;
+	private boolean isLocked;
+	private int loginAttempts;
+	public static final User NULL_USER = new User("", "", "");
+	public ArrayList<Item> owned;
+	
+	public User(String pUsername, String pPassword, String pEmail)
+	{
+		username = pUsername;
+		password = pPassword;
+		email = pEmail;
+	}
+	
+	/**
+	 * Adds an item object to the array of the user's owned items
+	 * @param i
+	 */
+	public void addItem(Item i){
+		owned.add(i);
+	}
+	
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
+	}
+
+	/**
+	 * @param username the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	/**
+	 * @return the isUnlocked
+	 */
+	public boolean isLocked() {
+		return isLocked;
+	}
+
+	/**
+	 * @param isUnlocked the isUnlocked to set
+	 */
+	public void setLocked(boolean isLocked) {
+		this.isLocked = isLocked;
+	}
+
+	/**
+	 * @return the loginAttempts
+	 */
+	public int getLoginAttempts() {
+		return loginAttempts;
+	}
+
+	/**
+	 * @param loginAttempts the loginAttempts to set
+	 */
+	public void setLoginAttempts(int loginAttempts) {
+		this.loginAttempts = loginAttempts;
+	}
+	/**
+	 * Checks to verify a loginAttempt and returns based on password equality and lock status
+	 * @param email
+	 * @param password
+	 * @return boolean loginAttempt status
+	 */
+	// TODO change to int or something to denote kinds of denial
+	//(locked out or just wrong password
+	public boolean verify(String email, String password)
+	{
+		if(password.equals(this.password) && !isLocked && email.equals(this.email))
+			return true;
+		else
+			loginAttempts++;
+			return false;
+	}
+}

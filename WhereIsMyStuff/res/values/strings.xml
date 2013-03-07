@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Where is My Stuff?</string>
+    <string name="title_activity_hello_world">HelloWorldActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="email_address">Email</string>
+    <string name="name">First and Last name</string>
+    <string name="password">Password</string>
+    <string name="title_activity_signin">SigninActivity</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="hello">Hello </string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="login_progress_signing_in">Signing In</string>
+</resources>

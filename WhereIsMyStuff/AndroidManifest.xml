@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.gatech.cs2340.whereismystuff"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="edu.gatech.cs2340.whereismystuff.views.SigninActivity"
+            android:label="@string/title_activity_signin" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="edu.gatech.cs2340.whereismystuff.SigninActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.whereismystuff.views.UserProfileActivity"
+            android:label="@string/title_activity_user_profile" >
+            <intent-filter>
+                <action android:name="edu.gatech.cs2340.whereismystuff.UserProfile" >
+                </action>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.whereismystuff.views.RegisterActivity"
+            android:label="@string/title_activity_register" >
+            <intent-filter>
+                <action android:name="edu.gatech.cs2340.whereismystuff.Register" >
+                </action>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
