@@ -9,20 +9,10 @@
     tools:context=".UserProfileActivity" >
 
     <TextView
-        android:id="@+id/registerLabel"
+        android:id="@+id/helloLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello" />
-
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/registerLabel"
-        android:layout_alignBottom="@+id/registerLabel"
-        android:layout_marginLeft="15dp"
-        android:layout_toRightOf="@+id/registerLabel"
-        android:text="guess!" />
 
     <Button
         android:id="@+id/signoutButton"
@@ -32,5 +22,55 @@
         android:layout_alignParentRight="true"
         android:onClick="onSignoutClick"
         android:text="Sign out" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/listView1"
+        android:layout_marginLeft="18dp"
+        android:layout_toRightOf="@+id/helloLabel"
+        android:text="guess!" />
+
+    <EditText
+        android:id="@+id/nameTextField"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/helloLabel"
+        android:layout_below="@+id/helloLabel"
+        android:layout_marginTop="54dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/emailTextField"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/helloLabel"
+        android:layout_below="@+id/nameTextField"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/phoneTextField"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/helloLabel"
+        android:layout_below="@+id/emailTextField"
+        android:ems="10"
+        android:hint="Phone number"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/locationTextField"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/helloLabel"
+        android:layout_below="@+id/phoneTextField"
+        android:ems="10"
+        android:hint="Location"
+        android:inputType="textPostalAddress" />
 
 </RelativeLayout>

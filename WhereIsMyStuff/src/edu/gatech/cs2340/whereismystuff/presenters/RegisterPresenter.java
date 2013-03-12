@@ -4,7 +4,6 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-import edu.gatech.cs2340.whereismystuff.commands.AuthenticateUserCommand;
 import edu.gatech.cs2340.whereismystuff.commands.CommandProcessor;
 import edu.gatech.cs2340.whereismystuff.commands.ICommand;
 import edu.gatech.cs2340.whereismystuff.commands.RegisterUserCommand;
@@ -12,7 +11,6 @@ import edu.gatech.cs2340.whereismystuff.models.IObserver;
 import edu.gatech.cs2340.whereismystuff.models.IUserModel;
 import edu.gatech.cs2340.whereismystuff.models.User;
 import edu.gatech.cs2340.whereismystuff.views.IRegisterView;
-import edu.gatech.cs2340.whereismystuff.views.ISigninView;
 
 public class RegisterPresenter implements IObserver {
 	private IRegisterView registerView;

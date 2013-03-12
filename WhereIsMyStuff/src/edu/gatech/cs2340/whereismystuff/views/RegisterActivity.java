@@ -1,9 +1,7 @@
 package edu.gatech.cs2340.whereismystuff.views;
 
 import edu.gatech.cs2340.whereismystuff.R;
-import edu.gatech.cs2340.whereismystuff.R.layout;
-import edu.gatech.cs2340.whereismystuff.R.menu;
-import edu.gatech.cs2340.whereismystuff.models.IUserModelRest;
+import edu.gatech.cs2340.whereismystuff.models.UserModelRest;
 import edu.gatech.cs2340.whereismystuff.models.User;
 import edu.gatech.cs2340.whereismystuff.presenters.RegisterPresenter;
 import android.os.Bundle;
@@ -22,7 +20,7 @@ public class RegisterActivity extends Activity implements IRegisterView{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
-		registerPresenter = new RegisterPresenter(this, new IUserModelRest());
+		registerPresenter = new RegisterPresenter(this, new UserModelRest());
 	}
 
 	@Override

@@ -40,7 +40,7 @@
             android:orientation="vertical" >
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/usernameSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_username"
@@ -49,10 +49,10 @@
                 android:singleLine="true" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/passwordSignin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/username"
+                android:layout_below="@id/usernameSignIn"
                 android:hint="@string/prompt_password"
                 android:imeActionId="@+id/login"
                 android:imeActionLabel="@string/prompt_password"
@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/password"
+                android:layout_below="@+id/passwordSignin"
                 android:layout_gravity="right"
                 android:onClick="onSigninClick"
                 android:text="Sign in"/> 
@@ -74,7 +74,7 @@
 			    android:id="@+id/register_button"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:layout_below="@+id/password"
+			    android:layout_below="@+id/passwordSignin"
 			    android:layout_gravity="right"
 			    android:layout_toLeftOf="@+id/sign_in_button"
 			    android:onClick="onRegisterClick"

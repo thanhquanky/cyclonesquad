@@ -1,20 +1,15 @@
 package edu.gatech.cs2340.whereismystuff.views;
 
 import edu.gatech.cs2340.whereismystuff.R;
-import edu.gatech.cs2340.whereismystuff.R.layout;
-import edu.gatech.cs2340.whereismystuff.R.menu;
-import edu.gatech.cs2340.whereismystuff.models.IUserModel;
-import edu.gatech.cs2340.whereismystuff.models.IUserModelRest;
 import edu.gatech.cs2340.whereismystuff.models.User;
+import edu.gatech.cs2340.whereismystuff.models.UserModelRest;
 import edu.gatech.cs2340.whereismystuff.presenters.SigninPresenter;
 import android.os.Bundle;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class SigninActivity extends Activity implements ISigninView{
 
@@ -26,7 +21,7 @@ public class SigninActivity extends Activity implements ISigninView{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_signin);
 
-		signinPresenter = new SigninPresenter(this, new IUserModelRest());
+		signinPresenter = new SigninPresenter(this, new UserModelRest());
 	}
 
 	@Override
@@ -48,11 +43,11 @@ public class SigninActivity extends Activity implements ISigninView{
 	}
 	
 	private EditText getUsernameField() {
-		return (EditText) findViewById(R.id.username);
+		return (EditText) findViewById(R.id.usernameSignIn);
 	}
 	
 	private EditText getPasswordField() {
-		return (EditText) findViewById(R.id.password);
+		return (EditText) findViewById(R.id.passwordSignin);
 	}
 
 	
@@ -62,8 +57,7 @@ public class SigninActivity extends Activity implements ISigninView{
 		if (user.getEmail()!="") {
 			Intent intent = new Intent("edu.gatech.cs2340.whereismystuff.UserProfile");
 			Bundle b = new Bundle();
-			b.putString("username", user.getUsername());
-			b.putString("email", user.getEmail());
+			b.putParcelable("user", user);
 			intent.putExtras(b);
 			startActivity(intent);
 		}

@@ -17,7 +17,7 @@ public class UserProfilePresenter implements IObserver{
 	}
 	
 	public void onSignoutClick() {
-		myView.setUser(User.NULL_USER);
+		myView.setUser(new User("",""));
 		myView.advance();
 	}
 	

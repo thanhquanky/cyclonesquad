@@ -3,8 +3,6 @@ package edu.gatech.cs2340.whereismystuff.presenters;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
 import edu.gatech.cs2340.whereismystuff.commands.AuthenticateUserCommand;
 import edu.gatech.cs2340.whereismystuff.commands.CommandProcessor;
 import edu.gatech.cs2340.whereismystuff.commands.ICommand;
@@ -12,7 +10,6 @@ import edu.gatech.cs2340.whereismystuff.models.IObserver;
 import edu.gatech.cs2340.whereismystuff.models.IUserModel;
 import edu.gatech.cs2340.whereismystuff.models.User;
 import edu.gatech.cs2340.whereismystuff.views.ISigninView;
-import edu.gatech.cs2340.whereismystuff.views.IUserProfileView;
 
 
 
@@ -48,31 +45,42 @@ public class SigninPresenter implements IObserver {
 		
 	}
 
+	/*
+	 * callback function from API call
+	 * 
+	 * @see edu.gatech.cs2340.whereismystuff.models.IObserver#notify(org.json.JSONObject)
+	 */
 	@Override
 	public void notify(JSONObject jsonObject) {
-		String username;
-		String email;
-		String password;
+		User u = User.NULL_USER;
+
 		try {
-			username = jsonObject.getString("username");
-			email = jsonObject.getString("email");
-			password = jsonObject.getString("password");
-			User u = new User(username, password, email);
-			Log.d("API", "Email is : " + email);
-			if ("".equals(u.getEmail())) {
-				signinView.setErrorMessage("Invalid authentication");
-				signinView.advance();
+			boolean authenticate = false;
+			if (jsonObject != null) {
+				authenticate = jsonObject.getBoolean("authenticate");
+				if (authenticate) {
+					JSONObject userInfo = jsonObject.getJSONObject("user"); 
+					u = new User(userInfo.getString("username"), userInfo.getString("password"), userInfo.getString("email"));
+					u.setLocation(userInfo.getString("location"));
+					u.setPhone(userInfo.getString("phone"));
+					u.setToken(userInfo.getString("token"));
+					u.setFirstName(userInfo.getString("firstname"));
+					u.setLastName(userInfo.getString("lastname"));
+					signinView.setUser(u);
+				}
+				else {
+					signinView.setErrorMessage("Invalid authentication");
+				}
 			}
 			else {
-				signinView.setUser(u);
-				signinView.advance();
-//				profileView.setUser(u);
-//				profileView.advance();
+				signinView.setErrorMessage("Oops, something wrong happen. Please try again");
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
+			signinView.setErrorMessage("Oops, something wrong happen. Please try again");
 			e.printStackTrace();
-		}		
+		}			
+		signinView.advance();
 	}
 	
 	

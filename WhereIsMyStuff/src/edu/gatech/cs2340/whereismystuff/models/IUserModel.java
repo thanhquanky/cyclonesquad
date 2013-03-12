@@ -10,11 +10,6 @@ public interface IUserModel extends IObservable{
 	
 	void removeUser(User u);
 	
-	User findUserById(String id);
-	
-	// user email is unique
-	User findUserByEmail(String email);
-	
 	void register(User u);
 	
 	void authenticateUser(User u);
